@@ -1,3 +1,5 @@
+package com.gojek.manager;
+
 import com.gojek.manager.MinHeapBasedSlotManager;
 import org.testng.Assert;
 import org.testng.annotations.*;
