@@ -28,6 +28,8 @@ public class Main
             Command command = inputReader.getNextCommand();
             if(command!=null)
                 parkingLotManager.executeCommand(command);
+            else
+                break;
         }
     }
 }

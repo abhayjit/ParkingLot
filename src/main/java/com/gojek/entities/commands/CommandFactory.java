@@ -45,6 +45,9 @@ public class CommandFactory
            }
         }
 
+        else
+            System.out.println("Unrecognized command");
+
         return command;
     }
 }

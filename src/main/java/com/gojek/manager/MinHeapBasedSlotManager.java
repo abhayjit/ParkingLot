@@ -3,6 +3,8 @@ package com.gojek.manager;
 /**
  * Created by akharbanda on 12/25/16.
  */
+
+// Uses MinHeap implementation to allot slots
 public class MinHeapBasedSlotManager implements SlotManager
 {
     int noOfSlots ;
@@ -44,6 +46,9 @@ public class MinHeapBasedSlotManager implements SlotManager
             }
             remainingSlots++;
         }
+
+        else
+            System.out.println("Slot does not exist");
     }
 
     private void heapifyTopDown(int i)

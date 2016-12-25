@@ -51,7 +51,7 @@ public class ParkingLotManager
     {
         try
         {
-            if(command.getCommandType()!=null)
+            if(command!=null && command.getCommandType()!=null)
             {
                 switch (command.getCommandType())
                 {
