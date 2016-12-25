@@ -85,6 +85,7 @@ public class ParkingLotManagerTest
     {
         Command parkingLotCommand = new CreateParkingLotCommand(3);
 
+        parkingLotManager = new ParkingLotManager();
         parkingLotManager.executeCommand(parkingLotCommand);
         Assert.assertEquals(outContent.toString(),String.format(CREATE_PARKING_LOT_STRING,3));
         outContent.reset();
@@ -141,7 +142,7 @@ public class ParkingLotManagerTest
         parkCarsForTesting();
 
         parkingLotManager.executeCommand(statusCommand);
-        Assert.assertEquals(outContent.toString(),"Slot No.\tRegistration No \tColour\n1\tdl-abc\twhite\n2\tdl-def\twhite\n3\tdl-ghi\tblack\n");
+        Assert.assertEquals(outContent.toString(), "Slot No.\tRegistration No \tColour\n1\tdl-abc\twhite\n2\tdl-def\twhite\n3\tdl-ghi\tblack\n");
         outContent.reset();
     }
 
