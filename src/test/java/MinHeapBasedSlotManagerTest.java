@@ -1,12 +1,6 @@
 import com.gojek.manager.MinHeapBasedSlotManager;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
-
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
+import org.testng.annotations.*;
 
 /**
  * Created by akharbanda on 12/25/16.
@@ -16,7 +10,7 @@ public class MinHeapBasedSlotManagerTest
   private MinHeapBasedSlotManager minHeapBasedSlotManager;
     int size = 3;
 
-    @BeforeTest
+    @BeforeMethod
     public void beforeTest()
     {
         minHeapBasedSlotManager = new MinHeapBasedSlotManager(size);
@@ -71,5 +65,5 @@ public class MinHeapBasedSlotManagerTest
         Assert.assertEquals(slot4,2);
         Assert.assertEquals(slot5,3);
     }
-    
+
 }
