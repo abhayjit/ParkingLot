@@ -1,6 +1,6 @@
 package com.gojek.manager;
 
-import com.gojek.entities.Ticket;
+import com.gojek.entities.ParkingTicket;
 import com.gojek.entities.commands.*;
 
 import java.util.HashMap;
@@ -13,7 +13,7 @@ import java.util.Set;
  */
 public class ParkingLotManager
 {
-    Map<Integer,Ticket> slotNumToTicketMap = new HashMap<Integer, Ticket>();
+    Map<Integer,ParkingTicket> slotNumToTicketMap = new HashMap<Integer, ParkingTicket>();
 
     Map<String,Set<Integer>> colourToSlotNumMap = new HashMap<String, Set<Integer>>();
     Map<String,Integer> regNumToSlotNumMap = new HashMap<String, Integer>();
@@ -93,7 +93,7 @@ public class ParkingLotManager
         int slotNumber = leaveCommand.getSlotNumber();
         slotsManager.collectSlot(slotNumber);
 
-        Ticket ticket = slotNumToTicketMap.get(slotNumber);
+        ParkingTicket ticket = slotNumToTicketMap.get(slotNumber);
         if(ticket!=null)
         {
             slotNumToTicketMap.remove(ticket.getSlot());
@@ -117,7 +117,7 @@ public class ParkingLotManager
 
         else
         {
-            Ticket ticket = new Ticket(parkCommand.getRegNumber(),parkCommand.getColour(),slotNumber);
+            ParkingTicket ticket = new ParkingTicket(parkCommand.getRegNumber(),parkCommand.getColour(),slotNumber);
 
             slotNumToTicketMap.put(slotNumber, ticket);
             regNumToSlotNumMap.put(ticket.getRegNumber(), slotNumber);
@@ -148,7 +148,7 @@ public class ParkingLotManager
             {
                 if(slot!=null)
                 {
-                    Ticket ticket = slotNumToTicketMap.get(slot);
+                    ParkingTicket ticket = slotNumToTicketMap.get(slot);
                     if(ticket!=null)
                     {
                         builder.append(ticket.getRegNumber());
@@ -192,7 +192,7 @@ public class ParkingLotManager
 
     private void executeSlotNumWithRegNum(SlotNumberForRegNumberCommand slotNumberForRegNumberCommand)
     {
-        Ticket ticket = slotNumToTicketMap.get(regNumToSlotNumMap.get(slotNumberForRegNumberCommand.getRegNum()));
+        ParkingTicket ticket = slotNumToTicketMap.get(regNumToSlotNumMap.get(slotNumberForRegNumberCommand.getRegNum()));
         if(ticket!=null)
             System.out.println(ticket.getSlot());
         else
@@ -205,9 +205,9 @@ public class ParkingLotManager
         {
             System.out.println(STATUS_HEADER_STRING);
 
-            for (Map.Entry<Integer, Ticket> entry : slotNumToTicketMap.entrySet())
+            for (Map.Entry<Integer, ParkingTicket> entry : slotNumToTicketMap.entrySet())
             {
-                Ticket ticket = entry.getValue();
+                ParkingTicket ticket = entry.getValue();
                 System.out.println(entry.getKey()+"\t"+ticket.getRegNumber()+"\t"+ticket.getCarColour());
             }
         }

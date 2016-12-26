@@ -3,14 +3,14 @@ package com.gojek.entities;
 /**
  * Created by akharbanda on 12/25/16.
  */
-public class Ticket
+public class ParkingTicket
 {
     String regNumber;
     String carColour;
     int slot;
 
 
-    public Ticket(String regNumber, String carColour, int slot)
+    public ParkingTicket(String regNumber, String carColour, int slot)
     {
         this.regNumber = regNumber;
         this.carColour = carColour;
@@ -50,7 +50,7 @@ public class Ticket
     @Override
     public boolean equals(Object ticket)
     {
-        Ticket other = (Ticket)ticket;
+        ParkingTicket other = (ParkingTicket)ticket;
         if(other.regNumber.equalsIgnoreCase(this.regNumber))
             return true;
         else
